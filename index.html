@@ -1,583 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudyIQ</title>
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
-
 <body>
 
+<header class="header">
+    <div class="logo">StudyIQ</div>
+    <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#study-sessions">Study Sessions</a>
+        <a href="#progress">Progress</a>
+    </nav>
+</header>
 
-    <!-- ==========================================
-         HEADER
-    =========================================== -->
+<main class="dashboard" id="dashboard">
 
-    <header class="header">
+    <section class="welcome">
+        <h1>Good evening, Sky 👋</h1>
+        <p>Here's a look at your study performance.</p>
+    </section>
 
-        <div class="logo">
-            StudyIQ
+    <section class="stats">
+        <div class="stat-card">
+            <h3>Total Study Hours</h3>
+            <p class="stat-number" id="total-hours">0</p>
+            <span>hours studied</span>
+        </div>
+        <div class="stat-card">
+            <h3>Average Score</h3>
+            <p class="stat-number" id="average-score">0%</p>
+            <span>across all tests</span>
+        </div>
+        <div class="stat-card">
+            <h3>Study Streak</h3>
+            <p class="stat-number" id="study-streak">0</p>
+            <span>days</span>
+        </div>
+    </section>
+
+    <section class="section-card" id="study-sessions">
+        <div class="section-heading">
+            <div>
+                <h2>Add Study Session</h2>
+                <p>Record what you studied today.</p>
+            </div>
         </div>
 
-
-        <nav>
-
-            <a href="#dashboard">
-                Dashboard
-            </a>
-
-            <a href="#study-sessions">
-                Study Sessions
-            </a>
-
-            <a href="#progress">
-                Progress
-            </a>
-
-        </nav>
-
-    </header>
-
-
-
-    <!-- ==========================================
-         MAIN DASHBOARD
-    =========================================== -->
-
-    <main
-        class="dashboard"
-        id="dashboard"
-    >
-
-
-        <!-- ==========================================
-             WELCOME
-        =========================================== -->
-
-        <section class="welcome">
-
-            <h1>
-                Good evening, Sky 👋
-            </h1>
-
-            <p>
-                Here's a look at your study performance.
-            </p>
-
-        </section>
-
-
-
-        <!-- ==========================================
-             STATISTICS
-        =========================================== -->
-
-        <section class="stats">
-
-
-            <!-- Total Study Hours -->
-
-            <div class="stat-card">
-
-                <h3>
-                    Total Study Hours
-                </h3>
-
-                <p
-                    class="stat-number"
-                    id="total-hours"
-                >
-                    0
-                </p>
-
-                <span>
-                    hours studied
-                </span>
-
+        <form id="study-form">
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" required>
+                    <option value="">Select a subject</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Economics">Economics</option>
+                    <option value="Business Studies">Business Studies</option>
+                    <option value="Accountancy">Accountancy</option>
+                    <option value="Political Science">Political Science</option>
+                    <option value="History">History</option>
+                </select>
             </div>
 
-
-
-            <!-- Average Score -->
-
-            <div class="stat-card">
-
-                <h3>
-                    Average Score
-                </h3>
-
-                <p
-                    class="stat-number"
-                    id="average-score"
-                >
-                    0%
-                </p>
-
-                <span>
-                    across all tests
-                </span>
-
+            <div class="form-group">
+                <label for="topic">Topic</label>
+                <input type="text" id="topic" placeholder="e.g. Integration" required>
             </div>
 
-
-
-            <!-- Study Streak -->
-
-            <div class="stat-card">
-
-                <h3>
-                    Study Streak
-                </h3>
-
-                <p
-                    class="stat-number"
-                    id="study-streak"
-                >
-                    0
-                </p>
-
-                <span>
-                    days
-                </span>
-
+            <div class="form-group">
+                <label for="study-time">Study Time (minutes)</label>
+                <input type="number" id="study-time" placeholder="e.g. 90" min="1" required>
             </div>
 
-
-        </section>
-
-
-
-        <!-- ==========================================
-             ADD STUDY SESSION
-        =========================================== -->
-
-        <section
-            class="section-card"
-            id="study-sessions"
-        >
-
-
-            <div class="section-heading">
-
-                <div>
-
-                    <h2>
-                        Add Study Session
-                    </h2>
-
-                    <p>
-                        Record what you studied today.
-                    </p>
-
-                </div>
-
+            <div class="form-group">
+                <label for="score">Test / Quiz Score (%)</label>
+                <input type="number" id="score" placeholder="e.g. 78" min="0" max="100" required>
             </div>
 
-
-
-            <form id="study-form">
-
-
-                <!-- Subject -->
-
-                <div class="form-group">
-
-                    <label for="subject">
-                        Subject
-                    </label>
-
-
-                    <select
-                        id="subject"
-                        required
-                    >
-
-                        <option value="">
-                            Select a subject
-                        </option>
-
-                        <option value="Mathematics">
-                            Mathematics
-                        </option>
-
-                        <option value="Physics">
-                            Physics
-                        </option>
-
-                        <option value="Chemistry">
-                            Chemistry
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-
-                <!-- Topic -->
-
-                <div class="form-group">
-
-                    <label for="topic">
-                        Topic
-                    </label>
-
-
-                    <input
-                        type="text"
-                        id="topic"
-                        placeholder="e.g. Integration"
-                        required
-                    >
-
-                </div>
-
-
-
-                <!-- Study Time -->
-
-                <div class="form-group">
-
-                    <label for="study-time">
-                        Study Time (minutes)
-                    </label>
-
-
-                    <input
-                        type="number"
-                        id="study-time"
-                        placeholder="e.g. 90"
-                        min="1"
-                        required
-                    >
-
-                </div>
-
-
-
-                <!-- Score -->
-
-                <div class="form-group">
-
-                    <label for="score">
-                        Test / Quiz Score (%)
-                    </label>
-
-
-                    <input
-                        type="number"
-                        id="score"
-                        placeholder="e.g. 78"
-                        min="0"
-                        max="100"
-                        required
-                    >
-
-                </div>
-
-
-
-                <!-- Difficulty -->
-
-                <div class="form-group">
-
-                    <label for="difficulty">
-                        Topic Difficulty
-                    </label>
-
-
-                    <select
-                        id="difficulty"
-                        required
-                    >
-
-                        <option value="">
-                            Select difficulty
-                        </option>
-
-                        <option value="Easy">
-                            Easy
-                        </option>
-
-                        <option value="Medium">
-                            Medium
-                        </option>
-
-                        <option value="Hard">
-                            Hard
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-
-                <!-- Confidence -->
-
-                <div class="form-group">
-
-                    <label for="confidence">
-                        Your Confidence
-                    </label>
-
-
-                    <select
-                        id="confidence"
-                        required
-                    >
-
-                        <option value="">
-                            Select confidence
-                        </option>
-
-                        <option value="Low">
-                            Low
-                        </option>
-
-                        <option value="Medium">
-                            Medium
-                        </option>
-
-                        <option value="High">
-                            High
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-
-                <!-- Submit -->
-
-                <button
-                    type="submit"
-                    id="save-session"
-                >
-                    Save Study Session
-                </button>
-
-
-            </form>
-
-
-        </section>
-
-
-
-        <!-- ==========================================
-             PERFORMANCE OVERVIEW + RECOMMENDATION
-        =========================================== -->
-
-        <section class="two-column">
-
-
-            <!-- Performance Overview -->
-
-            <div class="section-card">
-
-                <h2>
-                    Performance Overview
-                </h2>
-
-                <p>
-                    Your performance by subject.
-                </p>
-
-
-                <div id="subject-performance"></div>
-
+            <div class="form-group">
+                <label for="difficulty">Topic Difficulty</label>
+                <select id="difficulty" required>
+                    <option value="">Select difficulty</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
             </div>
 
-
-
-            <!-- Recommendation -->
-
-            <div class="section-card">
-
-                <h2>
-                    Recommendation
-                </h2>
-
-
-                <p id="recommendation-text">
-                    Add some study sessions to receive
-                    a personalized recommendation.
-                </p>
-
+            <div class="form-group">
+                <label for="confidence">Your Confidence</label>
+                <select id="confidence" required>
+                    <option value="">Select confidence</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
             </div>
 
+            <button type="submit" id="save-session">Save Study Session</button>
+        </form>
+    </section>
 
-        </section>
+    <section class="two-column">
+        <div class="section-card">
+            <h2>Performance Overview</h2>
+            <p>Your performance by subject.</p>
+            <div id="subject-performance"></div>
+        </div>
 
+        <div class="section-card">
+            <h2>Recommendation</h2>
+            <p id="recommendation-text">Add some study sessions to receive a personalized recommendation.</p>
+        </div>
+    </section>
 
+    <section class="section-card">
+        <h2>Weak Topics</h2>
+        <p>Topics that may need more attention.</p>
+        <div id="weak-topics"></div>
+    </section>
 
-        <!-- ==========================================
-             WEAK TOPICS
-        =========================================== -->
+    <section class="section-card">
+        <h2>Adaptive Revision Queue</h2>
+        <p>Topics are prioritized based on performance, confidence, difficulty, study time, and how recently you studied them.</p>
+        <div id="revision-queue"></div>
+    </section>
 
-        <section class="section-card">
+    <section class="section-card" id="progress">
+        <h2>Performance Analytics</h2>
+        <p>Visualize your performance and study time by subject.</p>
 
-            <h2>
-                Weak Topics
-            </h2>
+        <div class="chart-container">
+            <h3>Average Score</h3>
+            <canvas id="performance-chart"></canvas>
+        </div>
 
-            <p>
-                Topics that may need more attention.
-            </p>
+        <div class="chart-container">
+            <h3>Study Time</h3>
+            <canvas id="study-time-chart"></canvas>
+        </div>
+    </section>
 
-
-            <div id="weak-topics"></div>
-
-        </section>
-
-
-
-        <!-- ==========================================
-             ADAPTIVE REVISION QUEUE
-        =========================================== -->
-
-        <section class="section-card">
-
-            <h2>
-                Adaptive Revision Queue
-            </h2>
-
-            <p>
-                Topics are prioritized based on
-                performance, confidence, difficulty,
-                study time, and how recently you
-                studied them.
-            </p>
-
-
-            <div id="revision-queue"></div>
-
-        </section>
-
-
-
-        <!-- ==========================================
-             PERFORMANCE ANALYTICS
-        =========================================== -->
-
-        <section
-            class="section-card"
-            id="progress"
-        >
-
-            <h2>
-                Performance Analytics
-            </h2>
-
-            <p>
-                Visualize your performance and study
-                time by subject.
-            </p>
-
-
-
-            <!-- Average Score Chart -->
-
-            <div class="chart-container">
-
-                <h3>
-                    Average Score
-                </h3>
-
-                <canvas
-                    id="performance-chart"
-                ></canvas>
-
+    <section class="section-card">
+        <div class="section-heading">
+            <div>
+                <h2>Your Study Sessions</h2>
+                <p>Review your recent study activity.</p>
             </div>
+        </div>
+        <div id="sessions-container"></div>
+    </section>
 
+</main>
 
-
-            <!-- Study Time Chart -->
-
-            <div class="chart-container">
-
-                <h3>
-                    Study Time
-                </h3>
-
-                <canvas
-                    id="study-time-chart"
-                ></canvas>
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- ==========================================
-             STUDY SESSIONS
-        =========================================== -->
-
-        <section class="section-card">
-
-
-            <div class="section-heading">
-
-                <div>
-
-                    <h2>
-                        Your Study Sessions
-                    </h2>
-
-                    <p>
-                        Review your recent study activity.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div id="sessions-container"></div>
-
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- ==========================================
-         CHART.JS
-    =========================================== -->
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/chart.js"
-    ></script>
-
-
-
-    <!-- ==========================================
-         STUDYIQ JAVASCRIPT
-    =========================================== -->
-
-    <script src="script.js"></script>
-
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
